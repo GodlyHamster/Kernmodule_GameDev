@@ -9,13 +9,10 @@ sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "The Game gam
 
 bool hasLost = false;
 
-//function that contains all game logic
-void Game() {
-
-}
-
 int main()
 {
+    window.setFramerateLimit(30);
+
     //load font
     if (!arialFont.loadFromFile("arial.ttf"));
 
@@ -34,9 +31,13 @@ int main()
         //clears screen
         window.clear(sf::Color::Black);
 
-        //update the game if the player has not lost, else display end screen
+        //update the game if the player has not lost
         if (!hasLost) {
-            Game();
+            std::cout << "game is running" << std::endl;
+
+            //update player
+
+            //update enemies
         }
         else {
             sf::Text loseText{ "You Lost!", arialFont, 52 };

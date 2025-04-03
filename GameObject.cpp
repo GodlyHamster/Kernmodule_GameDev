@@ -2,8 +2,7 @@
 
 GameObject::GameObject()
 {
-	rigidbody = new Rigidbody{};
-	circleModel = Circle{Vec2(0, 0), 30};
+	model = Circle{Vec2(0, 0), 30};
 }
 
 GameObject::~GameObject()
@@ -12,30 +11,20 @@ GameObject::~GameObject()
 
 GameObject::GameObject(Vec2 pos)
 {
-	rigidbody = new Rigidbody{};
-	circleModel = Circle{pos, 30};
-	rigidbody->SetPosition(pos);
+	model = Circle{pos, 30};
 }
 
 GameObject::GameObject(Vec2 pos, float radius)
 {
-	rigidbody = new Rigidbody{};
-	circleModel = Circle{pos, radius};
-	rigidbody->SetPosition(pos);
+	model = Circle{pos, radius};
 }
 
-Rigidbody& GameObject::GetRigidbody()
+Shape GameObject::GetModel()
 {
-	return *rigidbody;
-}
-
-Circle GameObject::GetModel()
-{
-	return circleModel;
+	return model;
 }
 
 void GameObject::Draw(sf::RenderTarget& target)
 {
-	circleModel.SetPosition(rigidbody->GetPosition());
-	circleModel.Draw(target);
+	model.Draw(target);
 }

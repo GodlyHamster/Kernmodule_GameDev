@@ -1,5 +1,5 @@
 #pragma once
-#include "Rigidbody.h"
+#include "Vec2.h"
 #include <SFML/Graphics.hpp>
 
 class Shape
