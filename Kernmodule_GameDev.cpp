@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
-#include "CustomTime.h"
 
 sf::Font arialFont;
 
@@ -20,8 +19,6 @@ std::vector<GameObject> enemies;
 
 bool hasLost = false;
 
-//time variables
-CustomTime* customTime = CustomTime::GetInstance();
 
 sf::Clock enemySpawnTimer;
 sf::Clock deltaClock;
@@ -140,8 +137,5 @@ int main()
 
         //display everything
         window.display();
-
-        //updates deltatime
-        customTime->Update();
     }
 }

@@ -1,2 +1,28 @@
-﻿  Rigidbody.cpp
-  Kernmodule_GameDev.vcxproj -> C:\Users\woute\Documents\school\hku\C++\Kernmodule_GameDev\x64\Debug\Kernmodule_GameDev.exe
+﻿  Circle.cpp
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Circle.cpp(32,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  GameObject.cpp
+  Kernmodule_GameDev.cpp
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(8,63): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(8,49): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(28,19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(115,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(112,46): warning C4390: ';': empty controlled statement found; is this the intent?
+  Rectangle.cpp
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(16,15): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,36): warning C4244:         with
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,36): warning C4244:         [
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,36): warning C4244:             T=float
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,36): warning C4244:         ]
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,29): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,29): warning C4244:         with
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,29): warning C4244:         [
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,29): warning C4244:             T=float
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Rectangle.cpp(21,29): warning C4244:         ]
+  Rigidbody.cpp
+  Shape.cpp
+  Vec2.cpp
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Vec2.cpp(24,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Vec2.cpp(29,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Kernmodule_GameDev.vcxproj -> C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\x64\Debug\Kernmodule_GameDev.exe
