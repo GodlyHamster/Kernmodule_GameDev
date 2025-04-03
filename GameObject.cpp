@@ -2,7 +2,6 @@
 
 GameObject::GameObject()
 {
-	rigidbody = new Rigidbody{};
 	circleModel = Circle{Vec2(0, 0), 30};
 }
 
@@ -12,21 +11,56 @@ GameObject::~GameObject()
 
 GameObject::GameObject(Vec2 pos)
 {
-	rigidbody = new Rigidbody{};
 	circleModel = Circle{pos, 30};
-	rigidbody->SetPosition(pos);
+	SetPosition(pos);
 }
 
 GameObject::GameObject(Vec2 pos, float radius)
 {
-	rigidbody = new Rigidbody{};
 	circleModel = Circle{pos, radius};
-	rigidbody->SetPosition(pos);
+	SetPosition(pos);
 }
 
-Rigidbody& GameObject::GetRigidbody()
+void GameObject::SetPosition(Vec2 position)
 {
-	return *rigidbody;
+	this->position = position;
+}
+
+Vec2 GameObject::GetPosition()
+{
+	return this->position;
+}
+
+void GameObject::SetForce(Vec2 force)
+{
+	this->force = force;
+}
+
+Vec2 GameObject::GetForce()
+{
+	return force;
+}
+
+void GameObject::SetVelocity(Vec2 velocity)
+{
+	this->velocity = velocity;
+}
+
+Vec2 GameObject::GetVelocity()
+{
+	return this->velocity;
+}
+
+void GameObject::UpdatePosition()
+{
+	float deltaTime = 0.016f;
+
+	acceleration = force / 10.0f;
+	velocity = velocity + acceleration * deltaTime;
+
+	force = Vec2(0, 0);
+
+	this->position = position + velocity * deltaTime;
 }
 
 Circle GameObject::GetModel()
@@ -36,6 +70,6 @@ Circle GameObject::GetModel()
 
 void GameObject::Draw(sf::RenderTarget& target)
 {
-	circleModel.SetPosition(rigidbody->GetPosition());
+	circleModel.SetPosition(this->position);
 	circleModel.Draw(target);
 }

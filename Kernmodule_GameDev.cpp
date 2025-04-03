@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
-#include "CustomTime.h"
 
 sf::Font arialFont;
 
@@ -20,9 +19,6 @@ std::vector<GameObject> enemies;
 
 bool hasLost = false;
 
-//time variables
-CustomTime* customTime = CustomTime::GetInstance();
-
 sf::Clock enemySpawnTimer;
 sf::Clock deltaClock;
 float deltaTime = 0;
@@ -31,7 +27,7 @@ void AddRandomEnemy() {
     float randomX = (rand() % 800);
     GameObject gEnemy = { Vec2(randomX, -100), 30 };
     Vec2 force = (rand() % 2) == 1 ? Vec2(-2.0f, 1.0f) : Vec2(-2.0f, 1.0f);
-    gEnemy.GetRigidbody().SetForce(force * 1000);
+    gEnemy.SetForce(force * 1000);
     enemies.push_back(gEnemy);
 }
 
@@ -45,61 +41,63 @@ void Game() {
         difficulty = difficulty * 1.008f;
     }
 
-    Rigidbody& rb = player.GetRigidbody();
-
     //player movement
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        rb.SetForce(Vec2(-1, 0));
+        player.SetForce(Vec2(-1, 0));
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        rb.SetForce(Vec2(1, 0));
+        player.SetForce(Vec2(1, 0));
     }
 
-    if (rb.GetPosition().x + player.GetModel().GetRadius() >= window.getSize().x) {
-        rb.SetPosition(Vec2(windowSize.x - player.GetModel().GetRadius(), rb.GetPosition().y));
+    if (player.GetPosition().x + player.GetModel().GetRadius() >= window.getSize().x) {
+        player.SetPosition(Vec2(windowSize.x - player.GetModel().GetRadius(), player.GetPosition().y));
     }
-    if (rb.GetPosition().x - player.GetModel().GetRadius() <= 0) {
-        rb.SetPosition(Vec2(player.GetModel().GetRadius(), rb.GetPosition().y));
+    if (player.GetPosition().x - player.GetModel().GetRadius() <= 0) {
+        player.SetPosition(Vec2(player.GetModel().GetRadius(), player.GetPosition().y));
     }
 
-    rb.UpdatePosition();
+    player.UpdatePosition();
 
     //updates enemies
-    std::vector<GameObject>::iterator i = enemies.begin();
-    while (i != enemies.end()) {
-        Rigidbody& enemyRb = i->GetRigidbody();
-        i->Draw(window);
+    int listSize = enemies.size();
+    for (int i = 0; i < listSize;) {
+        GameObject& enemy = enemies[i];
+        float enemyRadius = enemies[i].GetModel().GetRadius();
+        enemies[i].Draw(window);
         bool deleteEnemy = false;
 
         //check collision with player
-        if (enemyRb.GetPosition().Distance(rb.GetPosition()) <= i->GetModel().GetRadius() + player.GetModel().GetRadius()) {
-            deleteEnemy = true;
+        if (enemy.GetPosition().Distance(player.GetPosition()) <= enemyRadius + player.GetModel().GetRadius()) {
             score++;
             scoreText.setString("Score: " + std::to_string(score));
+            deleteEnemy = true;
         }
 
         //check wall collisions and invert x force
-        if (enemyRb.GetPosition().x + i->GetModel().GetRadius() >= window.getSize().x) {
-            enemyRb.SetVelocity(Vec2(-enemyRb.GetVelocity().x, enemyRb.GetVelocity().y));
-            enemyRb.SetPosition(Vec2(windowSize.x - i->GetModel().GetRadius(), enemyRb.GetPosition().y));
+        if (enemy.GetPosition().x + enemyRadius >= window.getSize().x) {
+            enemy.SetVelocity(Vec2(-enemy.GetVelocity().x, enemy.GetVelocity().y));
+            enemy.SetPosition(Vec2(windowSize.x - enemyRadius, enemy.GetPosition().y));
         }
-        if (enemyRb.GetPosition().x - i->GetModel().GetRadius() <= 0) {
-            enemyRb.SetVelocity(Vec2(-enemyRb.GetVelocity().x, enemyRb.GetVelocity().y));
-            enemyRb.SetPosition(Vec2(i->GetModel().GetRadius(), enemyRb.GetPosition().y));
+        if (enemy.GetPosition().x - enemyRadius <= 0) {
+            enemy.SetVelocity(Vec2(-enemy.GetVelocity().x, enemy.GetVelocity().y));
+            enemy.SetPosition(Vec2(enemyRadius, enemy.GetPosition().y));
         }
 
         //delete enemy when under bottom of screen
-        if (enemyRb.GetPosition().y - i->GetModel().GetRadius() >= windowSize.y) {
-            deleteEnemy = true;
+        if (enemy.GetPosition().y - enemyRadius >= windowSize.y) {
             hasLost = true;
+            deleteEnemy = true;
         }
 
         if (deleteEnemy) {
-            i = enemies.erase(i);
+            listSize--;
+            std::cout << enemies.size() << std::endl;
+            delete &enemy;
+            std::cout << enemies.size() << std::endl;
             continue;
         }
 
-        enemyRb.UpdatePosition();
+        enemy.UpdatePosition();
         i++;
     }
 
@@ -140,8 +138,5 @@ int main()
 
         //display everything
         window.display();
-
-        //updates deltatime
-        customTime->Update();
     }
 }

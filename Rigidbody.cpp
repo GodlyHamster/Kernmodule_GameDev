@@ -6,6 +6,10 @@ Rigidbody::Rigidbody()
 {
 }
 
+Rigidbody::~Rigidbody()
+{
+}
+
 void Rigidbody::SetPosition(Vec2 position)
 {
 	this->position = position;

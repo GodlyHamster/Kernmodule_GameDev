@@ -1,11 +1,11 @@
 #pragma once
 #include "Vec2.h"
-#include "CustomTime.h"
 
 class Rigidbody
 {
 public:
 	Rigidbody();
+	~Rigidbody();
 	void SetPosition(Vec2 position);
 	Vec2 GetPosition();
 	void SetForce(Vec2 force);
