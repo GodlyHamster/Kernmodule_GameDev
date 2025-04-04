@@ -18,7 +18,9 @@ std::vector<Enemy> enemies;
 
 
 void SpawnRandomEnemy() {
-    Enemy newEnemy = Enemy(Vec2(std::rand() % 800, -100));
+    Enemy newEnemy = Enemy(Vec2(std::rand() % 700, -30));
+    int randomXForce = (rand() % 2) == 1 ? -7.0f : 7.0f;
+    newEnemy.SetMoveForce(Vec2(randomXForce, 3.0f));
     enemies.push_back(newEnemy);
 }
 
@@ -71,6 +73,14 @@ int main()
                         score += 1;
                         it = enemies.erase(it);
                         continue;
+                    }
+
+                    //invert x force when hitting wall
+                    if (it->GetPosition().x + it->GetModel().GetRadius() >= windowSize.x) {
+                        it->SetMoveForce(Vec2(it->GetMoveForce().x * -1, it->GetMoveForce().y));
+                    }
+                    if (it->GetPosition().x - it->GetModel().GetRadius() < 0) {
+                        it->SetMoveForce(Vec2(it->GetMoveForce().x * -1, it->GetMoveForce().y));
                     }
 
                     it->Move();

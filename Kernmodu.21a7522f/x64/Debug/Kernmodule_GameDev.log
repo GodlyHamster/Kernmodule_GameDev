@@ -1,7 +1,11 @@
-﻿  Kernmodule_GameDev.cpp
+﻿  Enemy.cpp
+  Kernmodule_GameDev.cpp
 C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(9,63): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
 C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(9,49): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
 C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(21,45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(33,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(30,46): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(22,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(23,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(35,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\Kernmodule_GameDev.cpp(32,46): warning C4390: ';': empty controlled statement found; is this the intent?
+  Generating Code...
   Kernmodule_GameDev.vcxproj -> C:\Users\woute\Documents\school\hku\jaar1\C++\Kernmodule_GameDev\x64\Debug\Kernmodule_GameDev.exe
