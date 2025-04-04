@@ -6,7 +6,6 @@ class Circle : public Shape
 private :
 	float radius = 0;
 	sf::CircleShape shape;
-	Vec2 position;
 
 public :
 	Circle();

@@ -57,6 +57,7 @@ void Circle::AddPosition(Vec2 position)
 
 void Circle::Draw(sf::RenderTarget& target)
 {
+	shape.setFillColor(sf::Color::White);
 	shape.setPosition(sf::Vector2f(position.x - radius, position.y - radius)); //draws circle from center
 	shape.setRadius(radius);
 	target.draw(shape);

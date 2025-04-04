@@ -4,8 +4,6 @@
 
 class Shape
 {
-private:
-
 public:
 	Shape();
 	virtual ~Shape();
@@ -15,5 +13,11 @@ public:
 	virtual void SetPosition(Vec2 position);
 	virtual void AddPosition(Vec2 position);
 	virtual void Draw(sf::RenderTarget& target);
+
+protected:
+	Vec2 position;
+
+private:
+
 };
 

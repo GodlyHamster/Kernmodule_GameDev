@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Vec2.h";
+#include "GameObject.h"
 
 sf::Font arialFont;
 
@@ -8,6 +8,8 @@ Vec2 windowSize = Vec2(800, 500);
 sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "The Game game");
 
 bool hasLost = false;
+
+GameObject player(Vec2{400,300}, 30);
 
 int main()
 {
@@ -33,7 +35,6 @@ int main()
 
         //update the game if the player has not lost
         if (!hasLost) {
-            std::cout << "game is running" << std::endl;
 
             //update player
 
@@ -45,6 +46,7 @@ int main()
         }
 
         //display everything
+        player.Draw(window);
         window.display();
     }
 }
