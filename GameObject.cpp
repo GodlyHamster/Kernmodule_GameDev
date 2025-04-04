@@ -21,6 +21,11 @@ GameObject::GameObject(Vec2 pos, float radius)
 	model = Circle{pos, radius};
 }
 
+Vec2 GameObject::GetPosition()
+{
+	return this->position;
+}
+
 Circle GameObject::GetModel()
 {
 	return model;

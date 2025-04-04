@@ -9,11 +9,15 @@ public:
 	~GameObject();
 	GameObject(Vec2 pos);
 	GameObject(Vec2 pos, float radius);
+	Vec2 GetPosition();
 	Circle GetModel();
 	void Draw(sf::RenderTarget& target);
 
-private:
+protected:
 	Vec2 position;
 	Circle model;
+
+private:
+
 };
 

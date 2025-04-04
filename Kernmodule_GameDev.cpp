@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
+#include "Player.h"
 
 sf::Font arialFont;
 
@@ -9,7 +10,7 @@ sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "The Game gam
 
 bool hasLost = false;
 
-GameObject player(Vec2{400,300}, 30);
+Player player = Player(Vec2{400, 450});
 
 int main()
 {
@@ -37,6 +38,13 @@ int main()
         if (!hasLost) {
 
             //update player
+            if (player.GetPosition().x + player.GetModel().GetRadius() >= windowSize.x) {
+                player.SetMoveForce(player.GetMoveForce() * -1);
+            }
+            if (player.GetPosition().x - player.GetModel().GetRadius() < 0) {
+                player.SetMoveForce(player.GetMoveForce() * -1);
+            }
+            player.Move();
 
             //update enemies
         }
