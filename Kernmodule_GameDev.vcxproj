@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Kernmodule_GameDev.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shape.h" />
